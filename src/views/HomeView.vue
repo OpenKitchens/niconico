@@ -8,30 +8,31 @@
         <RouterLink to="/"><img src="/public/image/title.svg"></RouterLink>
       </header>
 
-      <marquee class="bg-black py-2 text-white mb-0">Info: こちらは「ニコニコ避難所」です。ニコニコ名作動画や淫夢動画、ニコニコ被害状況のラジオを流れるニコニコ風のコメントで楽しめます。
+      <marquee class="bg-black py-2 text-white mb-0">Info:
+        こちらは「ニコニコ避難所」です。ニコニコ名作動画や淫夢動画、ニコニコ被害状況のラジオを流れるニコニコ風のコメントで楽しめます。
       </marquee>
+    </div>
 
-      <div class="px-8 py-5 mt-0"
-        style="top: 150px;height: 100vh;width: 30vw; background-color: rgba(0, 0, 0, 0.4)">
-        
-        <div class="twitchradio">
-          <p class="my-2 flex"><img src="/public/image/mic.svg" style="filter: invert(100%)">Twitchラジオ(被害状況と雑談)</p>
-          <iframe src="https://player.twitch.tv/?channel=moyasi7458&parent=niconico-omega.vercel.app" frameborder="0"
-            allowfullscreen="true" scrolling="no"
-            class="rounded-xl outline outline-3 outline-indigo-500" style="width: calc(100% - 10px)"></iframe>
-        </div>
-        
-        <div class="videoinfo mt-8 text-white">
-          <p>再生中のビデオ:</p>
-          <h1 class="text-3xl font-bold video-title">{{ title }}</h1>
-        </div>
+    <div class="px-8 py-5 mt-0 position fixed z-20"
+      style="top: 98px;height: 100vh;width: 30vw; background-color: rgba(0, 0, 0, 0.4)">
 
-        <div class="comentlog mt-5">
-          <p>コメント欄</p>
-          <div class="text-white">
-            <div v-for="comment in commentLog">
-              {{ comment.text }}
-            </div>
+      <div class="twitchradio">
+        <p class="my-2 flex"><img src="/public/image/mic.svg" style="filter: invert(100%)">Twitchラジオ(被害状況と雑談)</p>
+        <iframe src="https://player.twitch.tv/?channel=moyasi7458&parent=niconico-omega.vercel.app" frameborder="0"
+          allowfullscreen="true" scrolling="no" class="rounded-xl outline outline-3 outline-indigo-500"
+          style="width: calc(100% - 10px)"></iframe>
+      </div>
+
+      <div class="videoinfo mt-8 text-white">
+        <p>再生中のビデオ:</p>
+        <h1 class="text-3xl font-bold video-title">{{ title }}</h1>
+      </div>
+
+      <div class="comentlog mt-5">
+        <p>コメント欄</p>
+        <div class="text-white">
+          <div v-for="comment in commentLog">
+            {{ comment.text }}
           </div>
         </div>
       </div>
@@ -123,6 +124,8 @@ const createText = async (msg) => {
   });
 };
 
+
+
 videosocket.on("video", (msg) => {
   console.log(msg)
   const videoObject = JSON.parse(msg.data)
@@ -133,7 +136,7 @@ videosocket.on("video", (msg) => {
   document.querySelector("video").muted = false
   document.querySelector("video").play()
 
-  setTimeout(function (){
+  setTimeout(function () {
     document.querySelector("video").play()
   }, 5000)
 });
