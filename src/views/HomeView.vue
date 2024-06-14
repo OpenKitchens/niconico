@@ -170,7 +170,7 @@ videosocket.on("video", (msg) => {
   console.log(msg)
   const videoObject = JSON.parse(msg.data)
 
-  document.getElementById("videoiframe").innerHTML = `${videoObject.urldata}`
+  document.getElementById("videoiframe").innerHTML = msg.data//`${videoObject.urldata}`
   //title.value = videoObject.title
 
   document.querySelector("video").muted = false
@@ -178,6 +178,6 @@ videosocket.on("video", (msg) => {
 
   setTimeout(function () {
     document.querySelector("video").play()
-  }, 10000);
+  }, 5000);
 })
 </script>
