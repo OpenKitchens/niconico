@@ -176,8 +176,8 @@ videosocket.on("video", (msg) => {
   document.querySelector("video").muted = false
   document.querySelector("video").play()
 
-  setTimeout(function () {
+  /*setTimeout(function () {
     document.querySelector("video").play()
-  }, 10000)
-});
+  }, 10000);*/
+})
 </script>
