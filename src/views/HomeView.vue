@@ -2,6 +2,7 @@
   <div>
     <div id="videoiframe">
     </div>
+    <button class="position fixed z-50" @click="player" v-if="playerView" style="top: 50vh; left: 50vw; transform: translate(-50%,-50%);filter: invert(100%)"><img src="/public/image/play.svg" width="70"></button>
 
     <div class="position fixed top-0 left-0 z-10">
       <header class="flex justify-between px-10 py-3" style="backdrop-filter: blur(20px);width: 100vw;">
@@ -170,7 +171,7 @@ videosocket.on("video", (msg) => {
   console.log(msg)
   const videoObject = JSON.parse(msg.data)
 
-  document.getElementById("videoiframe").innerHTML = msg.data//`${videoObject.urldata}`
+  document.getElementById("videoiframe").innerHTML = videoObject.urldata
   //title.value = videoObject.title
 
   document.querySelector("video").muted = false
@@ -179,5 +180,20 @@ videosocket.on("video", (msg) => {
   setTimeout(function () {
     document.querySelector("video").play()
   }, 5000);
+
+  setTimeout(function () {
+    document.querySelector("video").play()
+  }, 10000);
+
+  setTimeout(function () {
+    document.querySelector("video").play()
+  }, 10000);
 })
+
+const playerView = ref(true)
+
+const player = () => {
+  document.querySelector("video").play()
+  playerView.value = false
+}
 </script>
