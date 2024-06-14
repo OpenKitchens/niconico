@@ -1,0 +1,49 @@
+@import './base.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+
+#app {
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+}
+
+
+.mintyo {
+  font-family: "Noto Serif", serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+.custom-input {
+  transition: border-color 0.35s ease-in-out, box-shadow 0.35s ease-in-out;
+}
+
+.custom-input:focus-within {
+  border-color: #80bdff;
+  outline: 0;
+  box-shadow: 0 0 0 0.4rem rgba(0, 123, 255, .25);
+}
+
+.video-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
