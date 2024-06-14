@@ -48,8 +48,8 @@
       <div class="position fixed bg-white bottom-5 rounded-full flex justify-between py-1 px-1 custom-input z-20"
         style="max-width: 600px;width: calc(100vw - 150px);left: 50vw; transform: translateX(-50%);">
         <div class="bg-zinc-900 block rounded-full px-3 my-auto flex">
-          <button @click="send" class="bg-zinc-900 mx-2 py-1" style="font-size: 25px;">Aa</button>
-          <button @click="send" class="bg-zinc-900 mintyo mx-2 py-1" style="font-size: 25px;">T</button>
+          <button @click="changeSize" class="bg-zinc-900 mx-2 py-1" :style="colorUI">{{ sizeUI }}</button>
+          <button @click="changeColor" class="bg-zinc-900 mintyo mx-2 py-1" :style="colorUI" >T</button>
         </div>
 
         <input v-model="input" placeholder="Enterまたは完了で実況コメントを送信する" class="text-neutral-950 rounded-r-full"
@@ -77,8 +77,31 @@ const socket = io('https://c5b2f24c-963f-41ba-8fd8-56e8c5ff3bb8-00-trpm54ga9v98.
 //video用socket
 const videosocket = io('https://86bfc230-82da-41a4-8b3b-d8575a223b0f-00-1vinzlq417xr7.pike.replit.dev/')
 
+const size = ref("25px");
+const color = ref("white")
+const colorUI = ref("font-size: 25px;color: white")
+const sizeUI = ref("Aa")
+
+const colorList = [
+  "white",
+  "yellow",
+  "orange",
+  "red",
+  "blue",
+  "purple"
+]
+
+const colorObject = {
+  "white": 1,
+  "yellow": 2,
+  "orange": 3,
+  "red": 4,
+  "blue": 5,
+  "purple": 0
+}
+
 const send = () => {
-  socket.emit('chat', { message: input.value });
+  socket.emit('chat', { message: input.value, size: size.value, color: color.value});
   input.value = ''
 }
 
@@ -88,6 +111,23 @@ socket.on('chat', (msg) => {
   console.log(commentLog.value)
   console.log(msg.message)
 });
+
+const changeColor = () => {
+  color.value = colorList[colorObject[color.value]]
+  colorUI.value = `font-size: 25px;color: ${color.value}`
+}
+
+const changeSize = () => {
+  size.value = size.value
+  if(size.value == "25px"){
+    sizeUI.value = "A"
+    size.value = "32px"
+  }else{
+    sizeUI.value = "a"
+    size.value = "25px"
+  }
+}
+
 
 const createText = async (msg) => {
   await nextTick(); // Ensure the DOM is updated before accessing commentFieldRef
@@ -101,9 +141,9 @@ const createText = async (msg) => {
     whiteSpace: 'nowrap',
     left: document.documentElement.clientWidth + 'px',
     top: randomTop,
-    color: "white",
+    color: msg.color,
     fontWeight: "bolder",
-    fontSize: "30px",
+    fontSize: msg.size,
     zIndex: "10",
     textShadow: "#000 1px 0 10px"
   };

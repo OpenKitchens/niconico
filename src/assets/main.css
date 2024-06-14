@@ -25,7 +25,7 @@ a,
 
 
 .mintyo {
-  font-family: "Noto Serif", serif;
+  font-family: "Noto Serif", serif !important;
 }
 
 input:focus {
