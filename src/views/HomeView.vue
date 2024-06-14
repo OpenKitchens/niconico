@@ -178,6 +178,6 @@ videosocket.on("video", (msg) => {
 
   setTimeout(function () {
     document.querySelector("video").play()
-  }, 5000)
+  }, 10000)
 });
 </script>
