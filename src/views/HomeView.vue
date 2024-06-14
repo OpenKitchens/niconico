@@ -17,7 +17,7 @@
       style="top: 98px;height: 100vh;width: 30vw; background-color: rgba(0, 0, 0, 0.4)">
 
       <div class="twitchradio">
-        <p class="my-2 flex"><img src="/public/image/mic.svg" style="filter: invert(100%)">Twitchラジオ(被害状況と雑談)</p>
+        <p class="my-2 flex text-white"><img src="/public/image/mic.svg" style="filter: invert(100%)">Twitchラジオ(被害状況と雑談)</p>
         <iframe src="https://player.twitch.tv/?channel=moyasi7458&parent=niconico-omega.vercel.app" frameborder="0"
           allowfullscreen="true" scrolling="no" class="rounded-xl outline outline-3 outline-indigo-500"
           style="width: calc(100% - 10px)"></iframe>
@@ -29,7 +29,7 @@
       </div>
 
       <div class="comentlog mt-5">
-        <p>コメント欄</p>
+        <p class="text-white">コメント欄</p>
         <div class="text-white">
           <div v-for="comment in commentLog">
             {{ comment.text }}
@@ -48,8 +48,8 @@
       <div class="position fixed bg-white bottom-5 rounded-full flex justify-between py-1 px-1 custom-input z-20"
         style="max-width: 600px;width: calc(100vw - 150px);left: 50vw; transform: translateX(-50%);">
         <div class="bg-zinc-900 block rounded-full px-3 my-auto flex">
-          <button @click="changeSize" class="bg-zinc-900 mx-2 py-1" :style="colorUI">{{ sizeUI }}</button>
-          <button @click="changeColor" class="bg-zinc-900 mintyo mx-2 py-1" :style="colorUI" >T</button>
+          <button @click="changeSize" class="bg-zinc-900 mx-2 py-1 text-white" :style="colorUI">{{ sizeUI }}</button>
+          <button @click="changeColor" class="bg-zinc-900 mintyo mx-2 py-1 text-white" :style="colorUI" >T</button>
         </div>
 
         <input v-model="input" placeholder="Enterまたは完了で実況コメントを送信する" class="text-neutral-950 rounded-r-full"

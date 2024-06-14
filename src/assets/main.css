@@ -23,6 +23,10 @@ a,
   }
 }
 
+body {
+  background-color: black;
+}
+
 
 .mintyo {
   font-family: "Noto Serif", serif !important;
