@@ -4,7 +4,7 @@
       allowfullscreen='true' scrolling='no'
       style='width: 100vw; height: 100vh; z-index: 1; position: fixed; top:0; left:0;'></iframe>
 
-    <div class="position fixed top-0 left-0 z-50"
+    <!--<div class="position fixed top-0 left-0 z-50"
       style="width: 100vw;height: 100vh;background-color: rgba(0,0,0,0.5);backdrop-filter: blur(20px);"
       v-if="playerView">
 
@@ -28,7 +28,7 @@
             @click="player">いいよこいよ！</button>
         </div>
       </div>
-    </div>
+    </div>-->
 
     <!--<button class="position fixed z-50" @click="player" v-if="playerView"
       style="top: 50vh; left: 50vw; transform: translate(-50%,-50%);filter: invert(100%)"><img
@@ -48,7 +48,11 @@
       style="top: 98px;height: 100vh;width: 30vw; background-color: rgba(0, 0, 0, 0.4)">
 
       <div class="mb-7">
-        <RouterLink to="/inmu" class="py-2 rounded-lg px-4 bg-white text-xl text-black">淫夢ほんへはこちらから ></RouterLink>
+        <RouterLink to="/inmu" class="py-2 rounded-lg px-4 bg-indigo-500 text-base text-white font-bold underline underline-offset-1">淫夢ほんへはこちらから ></RouterLink>
+      </div>
+
+      <div class="mb-7">
+        <RouterLink to="/video" class="py-2 rounded-lg px-4 bg-indigo-500 text-base text-white font-bold underline underline-offset-1">ボカロやニコニコMADはこちらから ></RouterLink>
       </div>
 
       <div class="twitchradio">
@@ -101,7 +105,7 @@ import { ref, nextTick } from 'vue';
 import { gsap } from 'gsap';
 
 
-const title = ref("Twitch会議")
+const title = ref("参加型ニコニコ避難所WEB開発")
 let count = ref(0);
 const commentLog = ref([]);//コメントログ（UIでずっと表示）
 const input = ref("");//inputのv-model用

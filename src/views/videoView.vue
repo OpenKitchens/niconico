@@ -9,19 +9,17 @@
       <div class="position absolute text-center" style="top: 50vh; left: 50vw; transform: translate(-50%,-50%);">
         <div class="position relative" style="left: 50%; transform: translateX(-50%);">
           <h1 class="text-white text-3xl flex">
-            <img src="/public/image/warning.svg" class="ml-auto" width="50">
-            <p class="ml-5 my-auto font-bold mr-auto">淫夢注意</p>
+            <p class="my-auto font-bold mx-auto">動画再生所</p>
           </h1>
-          <p class="text-white mt-5">この避難所ではホモビデオほんへ<br>が再生されるおそれがあります。</p>
-          <p class="text-white">苦手な人は注意してください。</p>
-          <p class="text-white">なお淫夢よる損失責任は取れません。</p>
+          <p class="text-white mt-5">懐かしのニコニコ動画が楽しめます</p>
+          <p class="text-white">ボカロからMAD、いにしえ動画まで！</p>
+          <p class="text-white">コメントをして盛り上がろう</p>
         </div>
 
         <div class="mt-4">
+          <RouterLink to="/" class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition active:scale-110 mx-2 bg-purple-700">退出</RouterLink>
           <button
-            class="bg-purple-700 inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition active:scale-110 mx-2" @click="player">たまげたなぁ</button>
-          <button
-            class="inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-neutral-50 transition active:scale-110 mx-2" @click="player">いいよこいよ！</button>
+            class="bg-white inline-flex h-12 items-center justify-center rounded-md bg-neutral-950 px-6 font-medium text-black transition active:scale-110 mx-2" @click="player">入る！</button>
         </div>
       </div>
     </div>
@@ -103,7 +101,7 @@ const items = ref([])//流れるコメントを格納
 //chat用socket
 const socket = io('https://c5b2f24c-963f-41ba-8fd8-56e8c5ff3bb8-00-trpm54ga9v98.sisko.replit.dev/')
 //video用socket
-const videosocket = io('https://86bfc230-82da-41a4-8b3b-d8575a223b0f-00-1vinzlq417xr7.pike.replit.dev/')
+const videosocket = io('https://ff380837-0d64-4fc6-a400-37965c37e3cd-00-3crbmtkb4wyvp.pike.replit.dev/')
 
 const size = ref("25px");
 const color = ref("white")

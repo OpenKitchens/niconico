@@ -15,9 +15,19 @@ const router = createRouter({
       component: () => import('../views/InmuPlayer.vue')
     },
     {
+      path: '/video',
+      name: 'video',
+      component: () => import('../views/videoView.vue')
+    },
+    {
       path: '/control',
       name: 'control',
       component: () => import('../views/ControlVideo.vue')
+    },
+    {
+      path: '/videocontrol',
+      name: 'VideoControl',
+      component: () => import('../views/VideoControl.vue')
     }
   ]
 })
