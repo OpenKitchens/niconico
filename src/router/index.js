@@ -10,6 +10,11 @@ const router = createRouter({
       component: HomeView
     },
     {
+      path: '/inmu',
+      name: 'inmu',
+      component: () => import('../views/InmuPlayer.vue')
+    },
+    {
       path: '/control',
       name: 'control',
       component: () => import('../views/ControlVideo.vue')

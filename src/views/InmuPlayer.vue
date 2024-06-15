@@ -1,7 +1,6 @@
 <template>
   <div>
     <div id="videoiframe">
-      <iframe src='https://player.twitch.tv/?channel=moyasi7458&parent=niconico-omega.vercel.app' frameborder='0' allowfullscreen='true' scrolling='no' style='width: 100vw; height: 100vh; z-index: 1; position: fixed; top:0; left:0;'></iframe>
     </div>
 
     <div class="position fixed top-0 left-0 z-50"
@@ -43,10 +42,6 @@
 
     <div class="px-8 py-5 mt-0 position fixed z-20"
       style="top: 98px;height: 100vh;width: 30vw; background-color: rgba(0, 0, 0, 0.4)">
-
-      <div class="mb-7">
-        <RouterLink to="/inmu" class="py-2 rounded-lg px-4 bg-white text-xl text-black">淫夢ほんへはこちらから ></RouterLink>
-      </div>
 
       <div class="twitchradio">
         <p class="my-2 flex text-white"><img src="/public/image/mic.svg" style="filter: invert(100%)">Twitchラジオ(被害状況と雑談)
@@ -98,7 +93,7 @@ import { ref, nextTick } from 'vue';
 import { gsap } from 'gsap';
 
 
-const title = ref("Twitch会議")
+const title = ref("野獣先輩が待機しています")
 let count = ref(0);
 const commentLog = ref([]);//コメントログ（UIでずっと表示）
 const input = ref("");//inputのv-model用
@@ -199,7 +194,7 @@ const createText = async (msg) => {
 
 
 
-/*videosocket.on("video", (msg) => {
+videosocket.on("video", (msg) => {
   console.log(msg)
   const videoObject = JSON.parse(msg.data)
 
@@ -212,7 +207,7 @@ const createText = async (msg) => {
   setTimeout(function () {
     document.querySelector("video").play()
   }, 5000);
-})*/
+})
 
 const playerView = ref(true)
 
