@@ -137,7 +137,10 @@ const send = () => {
 }
 
 const searchSend = () => {
-  socket.emit('search', searchInput.value);
+  console.log("searchSend")
+  videosocket.emit('search', searchInput.value);
+  console.log(searchInput.value)
+  searchInput.value = ""
 }
 
 socket.on('chat', (msg) => {
@@ -203,7 +206,9 @@ const createText = async (msg) => {
 
 videosocket.on("video", (msg) => {
   console.log(msg)
-  const videoObject = JSON.parse(msg.data)
+  //const videoObject = JSON.parse(msg.data)
+
+  const videoObject = msg
 
   document.getElementById("videoiframe").innerHTML = videoObject.urldata
   title.value = videoObject.title
